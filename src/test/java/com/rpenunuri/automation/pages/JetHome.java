@@ -7,7 +7,6 @@ public class JetHome extends BasePage {
 
     public JetHome(WebDriver webDriver) {
         super(webDriver);
-        //super(webDriver, seleniumPageFactory);
     }
 
     public JetHome performSeach(String search) {
@@ -15,8 +14,8 @@ public class JetHome extends BasePage {
         return this;
     }
 
-    public JetHome clickOnGoSearchButton() {
+    public JetSearchResults clickOnGoSearchButton() {
         click(".top .search_form .submit");
-        return this;
+        return page().jetSearchResults();
     }
 }

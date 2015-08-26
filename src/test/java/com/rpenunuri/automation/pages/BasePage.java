@@ -7,14 +7,14 @@ import org.openqa.selenium.WebElement;
 public abstract class BasePage {
 
     private final WebDriver _webDriver;
-    private SeleniumPageFactory _seleniumPageFactory;
+    private final SeleniumPageFactory _seleniumPageFactory;
 
     protected BasePage(WebDriver webDriver) {
         _webDriver = webDriver;
+        _seleniumPageFactory = new SeleniumPageFactory(_webDriver);
     }
 
-    public SeleniumPageFactory page() {
-        _seleniumPageFactory = new SeleniumPageFactory(_webDriver);
+    protected SeleniumPageFactory page() {
         return _seleniumPageFactory;
     }
 

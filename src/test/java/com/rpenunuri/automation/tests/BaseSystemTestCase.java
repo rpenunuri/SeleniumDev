@@ -12,7 +12,6 @@ import org.testng.annotations.Listeners;
 public abstract class BaseSystemTestCase {
 
     private ExecutionContext _executionContext;
-    private PageFactory _pageFactory;
     private static final ThreadLocal<Integer> THREAD_INDEX = new InheritableThreadLocal<>();
     private static int _threadCounter = 0;
 
@@ -46,15 +45,13 @@ public abstract class BaseSystemTestCase {
     }
 
     public SeleniumPageFactory page() {
-//        return new SeleniumPageFactory(getExecutionContext());
         return new SeleniumPageFactory(getExecutionContext().getWebDriver());
     }
 
 
     protected JetHome asJetGuest() {
         goToJetSite();
-        return page().jetHomePage();
-//        return PageFactory.initElements(getExecutionContext().getWebDriver(), JetHome.class);
+        return page().jetHome();
     }
 
     protected void goToJetSite() {
