@@ -1,9 +1,16 @@
 package com.rpenunuri.automation.pages;
 
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class JetSearchResults extends BasePage {
+
+    @Override
+    protected ExpectedCondition readyCondition() {
+        return ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".results.screen.active"));
+    }
 
     public JetSearchResults(WebDriver webDriver) {
         super(webDriver);

@@ -19,11 +19,17 @@ public class ExecutionContext {
 
     public void initializeWebDriver() {
         _webDriver = createDriver();
-        _webDriver.manage().timeouts().implicitlyWait(30, SECONDS);
+        _webDriver.manage().timeouts().implicitlyWait(10, SECONDS);
     }
 
     private WebDriver createDriver() {
         WebDriver webDriver = DriverType.valueOf("firefox").createWebDriver();
         return webDriver;
+    }
+
+    public void shutDown() {
+        if (getWebDriver() != null) {
+            _webDriver.quit();
+        }
     }
 }

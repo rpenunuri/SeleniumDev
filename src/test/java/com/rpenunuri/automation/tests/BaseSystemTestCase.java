@@ -2,11 +2,7 @@ package com.rpenunuri.automation.tests;
 
 import com.rpenunuri.automation.pages.JetHome;
 import com.rpenunuri.automation.pages.SeleniumPageFactory;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 
 @Listeners(value = {TestListener.class})
 public abstract class BaseSystemTestCase {
@@ -29,6 +25,11 @@ public abstract class BaseSystemTestCase {
     public void beforeMethod() {
         setupExecutionContext();
         getExecutionContext().initializeWebDriver();
+    }
+
+    @AfterTest
+    public void afterTest() {
+        _executionContext.shutDown();
     }
 
     protected ExecutionContext getExecutionContext() {
