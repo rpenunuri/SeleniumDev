@@ -7,6 +7,6 @@ public class JetSearchExistingItem extends BaseSystemTestCase {
 
     @Test
     public void testSenario() {
-        asJetGuest().closeOutsideOfTheUSModalDialog().performSeach("tylenol").clickOnGoSearchButton();
+        asJetGuest().closeOutsideOfTheUSModalDialog().performSearch("tylenol").clickOnGoSearchButton();
     }
 }

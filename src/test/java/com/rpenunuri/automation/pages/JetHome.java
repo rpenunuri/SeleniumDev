@@ -16,7 +16,7 @@ public class JetHome extends BasePage {
         super(webDriver);
     }
 
-    public JetHome performSeach(String search) {
+    public JetHome performSearch(String search) {
         sendKeys(".top .search_form input.tt-input", search);
         return this;
     }
