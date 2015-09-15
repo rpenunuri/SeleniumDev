@@ -35,6 +35,5 @@ public class JetHome extends BasePage {
 
     public boolean isOutsideOfTheUSModalDialogDisplayed() {
         return is(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".modal_close")));
-//        return is(Condition.elementIsDisplayed(".modal_close"));
     }
 }

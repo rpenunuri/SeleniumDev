@@ -16,4 +16,9 @@ public class JetSearchResults extends BasePage {
         super(webDriver);
     }
 
+    public JetSearchResults getAllSearchResults() {
+        // Create an object that will contain a searchresult, then create a list of them
+        return this;
+    }
+
 }
