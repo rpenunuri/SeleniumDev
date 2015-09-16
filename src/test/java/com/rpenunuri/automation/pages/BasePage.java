@@ -2,8 +2,11 @@ package com.rpenunuri.automation.pages;
 
 import com.rpenunuri.automation.util.Condition;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,6 +35,23 @@ public abstract class BasePage {
 
     protected void click(String cssSelector) {
         findElement(cssSelector).click();
+    }
+
+    protected void clickLink(String linkText) {
+        findElement(By.linkText(linkText)).click();
+    }
+
+    protected void clickPartialLinkText(String linkText) {
+        findElement(By.partialLinkText(linkText)).click();
+    }
+
+    protected void scrollTo(String cssSelector) {
+        Point point = findElement(cssSelector).getLocation();
+        ((JavascriptExecutor) _webDriver).executeScript(String.format("window.scrollTo(%d,%d)", point.x, point.y - 100));
+    }
+
+    protected void select(String cssSelector, String text) {
+        new Select(findElement(cssSelector)).selectByVisibleText(text);
     }
 
     protected WebElement findElement(String cssSelector) {

@@ -20,6 +20,7 @@ public class ExecutionContext {
     public void initializeWebDriver() {
         _webDriver = createDriver();
         _webDriver.manage().timeouts().implicitlyWait(10, SECONDS);
+        _webDriver.manage().window().maximize();
     }
 
     private WebDriver createDriver() {

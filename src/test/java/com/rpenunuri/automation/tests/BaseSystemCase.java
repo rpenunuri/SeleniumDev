@@ -1,11 +1,13 @@
 package com.rpenunuri.automation.tests;
 
-import com.rpenunuri.automation.pages.JetHome;
+import com.rpenunuri.automation.pages.epam.EpamHome;
+import com.rpenunuri.automation.pages.jet.JetHome;
 import com.rpenunuri.automation.pages.SeleniumPageFactory;
+import com.rpenunuri.automation.pages.toptal.ToptalHome;
 import org.testng.annotations.*;
 
 @Listeners(value = {TestListener.class})
-public abstract class BaseSystemTestCase {
+public abstract class BaseSystemCase {
 
     private ExecutionContext _executionContext;
     private static final ThreadLocal<Integer> THREAD_INDEX = new InheritableThreadLocal<>();
@@ -49,14 +51,36 @@ public abstract class BaseSystemTestCase {
         return new SeleniumPageFactory(getExecutionContext().getWebDriver());
     }
 
-
+    //region JET Methods
     protected JetHome asJetGuest() {
         goToJetSite();
         return page().jetHome();
     }
 
-    protected void goToJetSite() {
+    private void goToJetSite() {
         navigateTo(getExecutionContext(), "https://jet.com/");
+    }
+    //endregion
+
+
+    //region EPAM Methods
+    protected EpamHome asEpamGuest() {
+        goToEpamSite();
+        return page().epamHome();
+    }
+
+    private void goToEpamSite() {
+        navigateTo(getExecutionContext(), "http://www.epam.com/");
+    }
+    //endregion
+
+    protected ToptalHome asToptalGuest() {
+        goToToptalSite();
+        return page().toptalHome();
+    }
+
+    private void goToToptalSite() {
+        navigateTo(getExecutionContext(), "http://www.toptal.com");
     }
 
     protected void navigateTo(ExecutionContext executionContext, String path) {
