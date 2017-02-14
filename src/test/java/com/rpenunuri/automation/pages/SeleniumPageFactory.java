@@ -4,6 +4,8 @@ import com.rpenunuri.automation.pages.epam.EpamCareers;
 import com.rpenunuri.automation.pages.epam.EpamHome;
 import com.rpenunuri.automation.pages.jet.JetHome;
 import com.rpenunuri.automation.pages.jet.JetSearchResults;
+import com.rpenunuri.automation.pages.retailmenot.GiftCardZenHome;
+import com.rpenunuri.automation.pages.retailmenot.GiftCardZenSearchResults;
 import com.rpenunuri.automation.pages.toptal.ToptalHome;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -39,5 +41,13 @@ public class SeleniumPageFactory extends PageFactory {
 
     public ToptalHome toptalHome() {
         return initElements(_webDriver, ToptalHome.class);
+    }
+
+    public GiftCardZenHome giftCardZenHome() {
+        return  initElements(_webDriver, GiftCardZenHome.class);
+    }
+
+    public GiftCardZenSearchResults giftCardZenSearchResults() {
+        return initElements(_webDriver, GiftCardZenSearchResults.class);
     }
 }

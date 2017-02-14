@@ -1,6 +1,7 @@
 package com.rpenunuri.automation.util;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -14,6 +15,13 @@ public enum DriverType {
            return new FirefoxDriver(firefoxProfile);
         }
 
+    },
+    chrome {
+        @Override
+        public WebDriver createWebDriver() {
+            System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
+            return new ChromeDriver();
+        }
     };
 
     public abstract WebDriver createWebDriver();

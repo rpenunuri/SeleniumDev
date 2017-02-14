@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage {
@@ -62,6 +63,14 @@ public abstract class BasePage {
         return _webDriver.findElement(by);
     }
 
+    protected List<WebElement> findElements(String cssSelector) {
+        return _webDriver.findElements(By.cssSelector(cssSelector));
+    }
+
+    private List<WebElement> findElements(By by) {
+        return _webDriver.findElements(by);
+    }
+
     protected void waitUntilElementContainsExpectedText(final String cssSelector, String expectedText){
         waitUntil(Condition.elementContainsExpectedText(cssSelector, expectedText));
     }
@@ -76,5 +85,9 @@ public abstract class BasePage {
 
     protected Boolean is(ExpectedCondition expectedCondition) {
         return (Boolean) expectedCondition.apply(_webDriver);
+    }
+
+    protected int getRowsCountFromTable(String cssSelector) {
+        return findElements(cssSelector).size();
     }
 }

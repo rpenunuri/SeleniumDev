@@ -3,6 +3,7 @@ package com.rpenunuri.automation.tests;
 import com.rpenunuri.automation.pages.epam.EpamHome;
 import com.rpenunuri.automation.pages.jet.JetHome;
 import com.rpenunuri.automation.pages.SeleniumPageFactory;
+import com.rpenunuri.automation.pages.retailmenot.GiftCardZenHome;
 import com.rpenunuri.automation.pages.toptal.ToptalHome;
 import org.testng.annotations.*;
 
@@ -77,6 +78,15 @@ public abstract class BaseSystemCase {
     protected ToptalHome asToptalGuest() {
         goToToptalSite();
         return page().toptalHome();
+    }
+
+    protected GiftCardZenHome asZenConsumer() {
+        goToGiftCardZenSite();
+        return page().giftCardZenHome();
+    }
+
+    private void goToGiftCardZenSite() {
+        navigateTo(getExecutionContext(), "https://giftcardzen.com/");
     }
 
     private void goToToptalSite() {
